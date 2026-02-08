@@ -66,7 +66,7 @@ class ServicioPacientes(QMainWindow):
                 PacienteDAO.insertar_paciente(persona)
 
                 # Usamos self.statusBar() directamente de QMainWindow
-                self.statusBar().showMessage("Se guardó el paciente", 1500)
+                QMessageBox.information(self, "Éxito", "Paciente guardado")
                 self.limpiar()
             except ValueError as e:
                 QMessageBox.warning(self, "Advertencia", f'Error: {e}')
@@ -111,7 +111,7 @@ class ServicioPacientes(QMainWindow):
             )
 
             PacienteDAO.actualizar_paciente(persona)
-            self.statusBar().showMessage("Datos actualizados", 1500)
+            QMessageBox.information(self, "Éxito", "Paciente actualizado\n(puede verificarlo en su base de datos)")
             self.limpiar()
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Error al actualizar: {e}")
@@ -128,7 +128,7 @@ class ServicioPacientes(QMainWindow):
 
         try:
             PacienteDAO.eliminar_paciente(cedula)
-            self.statusBar().showMessage("Paciente eliminado correctamente", 1500)
+            QMessageBox.information(self, "Éxito", "Paciente eliminado")
             self.limpiar()
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Error al eliminar: {e}")
