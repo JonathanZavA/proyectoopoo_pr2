@@ -218,7 +218,7 @@
     <string>Buscar</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="txt_buscar">
    <property name="geometry">
     <rect>
      <x>190</x>
@@ -228,7 +228,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="btn_buscar_">
    <property name="geometry">
     <rect>
      <x>590</x>
