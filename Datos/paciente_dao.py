@@ -9,10 +9,10 @@ class PacienteDAO:
     """
 
     # Sentencias SQL constantes
-    _SELECCIONAR = "SELECT * FROM Pacientes WHERE cedula = ?"
-    _INSERTAR = "INSERT INTO Pacientes (nombre, apellido, edad, genero, correo, cedula) VALUES (?, ?, ?, ?, ?, ?)"
-    _ACTUALIZAR = "UPDATE Pacientes SET nombre=?, apellido=?, edad=?, genero=?, correo=? WHERE cedula=?"
-    _ELIMINAR = "DELETE FROM Pacientes WHERE cedula = ?"
+    _SELECCIONAR = "SELECT * FROM Paciente WHERE cedula = ?"
+    _INSERTAR = "INSERT INTO Paciente (nombre, apellido, edad, genero, correo, cedula) VALUES (?, ?, ?, ?, ?, ?)"
+    _ACTUALIZAR = "UPDATE Paciente SET nombre=?, apellido=?, edad=?, genero=?, correo=? WHERE cedula=?"
+    _ELIMINAR = "DELETE FROM Paciente WHERE cedula = ?"
 
     @classmethod
     def seleccionar_paciente(cls, cedula):

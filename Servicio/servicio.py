@@ -42,8 +42,20 @@ class ServicioPacientes(QMainWindow):
         cedula = self.ui.txt_cedula.text()
 
         # Validación de campos vacíos
-        if not nombre or not apellido or not edad or not correo or not cedula or self.ui.btn_genero.currentIndex() == 0:
-            QMessageBox.warning(self, "Advertencia", "Todos los campos son obligatorios")
+        if nombre == "":
+            QMessageBox.warning(self, "Advertencia", "Debe ingresar un Nombre")
+        elif apellido == "":
+            QMessageBox.warning(self, "Advertencia", "Debe ingresar un Apellido")
+        elif edad == "":
+            QMessageBox.warning(self, "Advertencia", "Debe ingresar un edad")
+        elif genero == "Selecione...":
+            QMessageBox.warning(self, "Advertencia", "Debe seleccionar un Sexo")
+        elif correo == "":
+            QMessageBox.warning(self, "Advertencia", "Debe ingresar un correo")
+        elif cedula == "":
+            QMessageBox.warning(self, "Advertencia", "Debe ingresar un cedua")
+
+
         else:
             try:
                 # Creación del objeto de dominio
@@ -57,7 +69,7 @@ class ServicioPacientes(QMainWindow):
                 self.statusBar().showMessage("Se guardó el paciente", 1500)
                 self.limpiar()
             except ValueError as e:
-                QMessageBox.warning(self, "Advertencia", str(e))
+                QMessageBox.warning(self, "Advertencia", f'Error: {e}')
             except Exception as e:
                 QMessageBox.critical(self, "Error Crítico", f"Ocurrió un error: {e}")
 

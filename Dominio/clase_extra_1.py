@@ -24,7 +24,7 @@ class Paciente:
             raise ValueError('El nombre no puede estar vacío')
 
         if not n_nombre.replace(' ','').isalpha():
-            raise ValueError('El nombre no puede tener números ni carácteres especiales.')
+            raise ValueError('el nombre tiene caracteres inválidos. Es posible que usted haya ingresado números o caracteres especiales en su nombre.')
 
         self._nombre = n_nombre
 
@@ -39,7 +39,7 @@ class Paciente:
         if not n_apellido:
             raise ValueError('El apellido no puede estar vacío.')
         if not n_apellido.replace(' ','').isalpha():
-            raise ValueError('El apellido no puede tener numeros ni carácteres especiales.')
+            raise ValueError('el apellido tiene caracteres inválidos. Es posible que usted haya ingresado números o caracteres especiales en su apellido.')
 
         self._apellido = n_apellido
 
@@ -58,7 +58,7 @@ class Paciente:
             else:
                 raise ValueError('La edad no está dentro del rango permitido.')
         else:
-            raise ValueError('Error: La edad tiene que ser un numero positivo y unicamente entero, enténtelo de nuevo.')
+            raise ValueError('la edad no cumple con el formato correcto.')
 
 
 
@@ -73,7 +73,7 @@ class Paciente:
         """Valida que el género sea 'm' o 'f'."""
         n_genero = str(n_genero).capitalize().strip()
         if n_genero not in ('Masculino', 'Femenino'):
-            raise ValueError('El género no está dentro de los valores permitidos.')
+            raise ValueError('Error. El género no existe dentro de las opciones permitidas')
 
         self._genero = n_genero
 
@@ -86,11 +86,11 @@ class Paciente:
         """Valida formato básico de correo (sin espacios y con @)."""
         n_correo = str(n_correo).strip()
         if not n_correo or ' ' in n_correo:
-            raise ValueError('El correo no puede estar vacío ni contener espacios.')
+            raise ValueError('el correo no puede contener espacios ni estar vacío.')
 
         dividido = n_correo.split('@')
         if len(dividido) != 2 or '.' not in dividido[1] or not dividido[0] or not dividido[1]:
-            raise ValueError('Formato de correo incorrecto.')
+            raise ValueError('formato de correo incorrecto.')
 
         self._correo = n_correo
 
@@ -104,9 +104,9 @@ class Paciente:
         if not n_cedula:
             raise ValueError('Debe ingresar una cédula.')
         elif not n_cedula.isdigit():
-            raise ValueError('Solo se permiten números (recuerde que el tamaño máximo son de 10 dígitos correspondiente al formato de una cédula, si no es así, saltará otro error.')
-        elif len(n_cedula) < 0 or len(n_cedula) > 10:
-            raise ValueError('Fuera del rango (10 digitos)')
+            raise ValueError('\nsolo se permiten números en la cédula.\n(Recuerde que el tamaño debe de ser de 10 dígitos correspondientes al formato de una cédula, si no es así, saltará otro error.')
+        elif len(n_cedula) != 10:
+            raise ValueError('Cédula fuera del rango (son 10 digitos)')
         self._cedula = n_cedula
 
 
