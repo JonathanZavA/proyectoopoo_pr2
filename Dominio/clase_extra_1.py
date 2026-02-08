@@ -71,9 +71,9 @@ class Paciente:
     @genero.setter
     def genero(self, n_genero):
         """Valida que el género sea 'm' o 'f'."""
-        n_genero = str(n_genero).lower().strip()
-        if n_genero not in ('m', 'f'):
-            raise ValueError('El género está dentro de los valores permitidos (m,f)')
+        n_genero = str(n_genero).capitalize().strip()
+        if n_genero not in ('Masculino', 'Femenino'):
+            raise ValueError('El género no está dentro de los valores permitidos.')
 
         self._genero = n_genero
 
@@ -105,7 +105,7 @@ class Paciente:
             raise ValueError('Debe ingresar una cédula.')
         elif not n_cedula.isdigit():
             raise ValueError('Solo se permiten números (recuerde que el tamaño máximo son de 10 dígitos correspondiente al formato de una cédula, si no es así, saltará otro error.')
-        elif n_cedula < 0 or n_cedula > 10:
+        elif len(n_cedula) < 0 or len(n_cedula) > 10:
             raise ValueError('Fuera del rango (10 digitos)')
         self._cedula = n_cedula
 
@@ -118,7 +118,3 @@ class Paciente:
         return f'- Datos del paciente -\nNombre: {self._nombre}\nApellido: {self._apellido}\nEdad: {self._edad}\nGénero: {self._genero}\nCorreo: {self._correo}'
 
 
-# Muestra de la ejecución de la clase
-if __name__ == '__main__':
-    pac = Paciente('Maria', 'Merc',19,'f','merch@gmail.com')
-    print(pac)

@@ -8,10 +8,10 @@ class Conexion:
     con métodos de clase para optimizar el uso de recursos.
     """
     # Constantes de conexión (Clase)
-    SERVIDOR = 'DESKTOP-SERVER-POO'
-    BBDD = 'HospitalDB'
-    USUARIO = 'admin_pacientes'
-    PASSWORD = 'Poo2024.semestre'
+    SERVIDOR = '16.0.1000.6'
+    BBDD = 'Hospital'
+    USUARIO = 'proyecto_2bd'
+    PASSWORD = '1234'
 
     # Atributos de clase para mantener la instancia única
     _conexion = None
@@ -54,10 +54,3 @@ class Conexion:
                 sys.exit()
         else:
             return cls._cursor
-
-
-# Bloque de prueba
-if __name__ == "__main__":
-    if Conexion.obtenerConexion():
-        print("Conexión exitosa desde el método de clase.")
-        print(f"Cursor listo: {Conexion.obtenerCursor()}")

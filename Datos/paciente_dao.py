@@ -1,4 +1,4 @@
-from conexion import Conexion
+from Datos.conexion import Conexion
 import sys
 
 
@@ -79,8 +79,3 @@ class PacienteDAO:
             return 0
 
 
-# Bloque de prueba para verificar sentencias (opcional)
-if __name__ == "__main__":
-    # Suponiendo que existe un objeto paciente con estos atributos
-    # print(f"Registros afectados: {PacienteDAO.eliminar_paciente('1712345678')}")
-    pass
